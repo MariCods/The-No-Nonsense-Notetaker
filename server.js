@@ -2,8 +2,8 @@ const express = require('express');
 const path = require('path');
 const fs = require('fs');
 
-//  const uuid = require('./helpers/uuid');
-// const notes = require('./db/notes');
+ //const uuid = require('./helpers/uuid');
+const notes = require('./db/notes');
 
 const app = express();
 const PORT = 3001;
@@ -35,27 +35,6 @@ app.get("/api/notes", (req, res) => {
   });
 });
 
-// app.get('./db/notes.json', (req, res) => {
-//     console.info('Get ./db/notes.json');
-//     res.status(200).json(notes);
-// });
-
-// app.get('/api/notes/:notes_id', (req, res) => {
-//     if (req.params.notes_id) {
-//       console.info(`${req.method} request received to get a single a notes`);
-//       const notesId = req.params.notes_id;
-//       for (let i = 0; i < notes.length; i++) {
-//         const currentNotes = notes[i];
-//         if (currentNotes.notes_id === notesId) {
-//           res.json(currentNotes);
-//           return;
-//         }
-//       }
-//       res.status(404).send('Notes not found');
-//     } else {
-//       res.status(400).send('Notes ID not provided');
-//     }
-//   });
 
   app.post('/api/notes', (req, res) => {
     
@@ -64,25 +43,28 @@ app.get("/api/notes", (req, res) => {
    
     const { title, text } = req.body;
   
-    // If all the required properties are present
+    
     if (title && text ) {
-      // Variable for the object we will save
-      const newNote = {
-        title,
-        text,
-      };
+     
+      
       
       fs.readFile('./db/notes.json', 'utf8', (err, data) => {
         if (err) {
           console.error(err);
         } else {
           const parsedNotes = JSON.parse(data);
+          const newNote = {
+            id: parsedNotes.length + 1,
+            title,
+            text,
+          };
 
           parsedNotes.push(newNote);
 
+        
           fs.writeFile(
             './db/notes.json',
-            JSON.stringify(parsedNotes, null),
+            JSON.stringify(parsedNotes, null, 2),
             (writeErr) =>
             writeErr
             ? console.error(writeErr)

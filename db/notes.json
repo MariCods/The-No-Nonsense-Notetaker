@@ -1,1 +1,17 @@
-[{"title":"Test Title","text":"Test text"},{"title":"It Works!!","text":"I am so happy to say that my server is working perfectly!!"},{"title":"Please!","text":"come on!!\n\n"},{"title":"Hello","text":"Yes"}]
+[
+  {
+    "id": 1,
+    "title": "Note",
+    "text": "Save!"
+  },
+  {
+    "id": 2,
+    "title": "Lets See",
+    "text": "Next work on uploading this repo."
+  },
+  {
+    "id": 3,
+    "title": "Lets Get This Done!!",
+    "text": "I'm catching up with my homework!!\n"
+  }
+]
