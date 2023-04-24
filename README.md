@@ -30,7 +30,7 @@ HTML, Javascript, Bootstrap
 ## Links
 
 [GitHub Repo]
-
+https://github.com/MariCods/The-No-Nonsense-Notetaker
 
 [Deployed Link]
 
@@ -40,7 +40,7 @@ HTML, Javascript, Bootstrap
 [![License](https://img.shields.io/badge/license-MIT-lightgrey.svg)](https://opensource.org/licenses/MIT)
 
 # Features
-Generates weather based on the search bar input
+Takes and saves notes
 
 # Contributions
 N/A
